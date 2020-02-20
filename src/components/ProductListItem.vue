@@ -1,6 +1,6 @@
 <template>
-    <li v-on:click="handleClick" class="list-item">
-        <div class="item-bg-image" v-bind:style="{ backgroundImage: `url(${product.hero.href})` }">
+    <li class="list-item">
+        <div class="item-bg-image" v-on:click="handleClick" v-bind:style="{ backgroundImage: `url(${product.hero.href})` }">
           <p class="item-name">{{ product.name }}</p>
           <p class="item-price" v-if="product.price && product.price.selling">{{ "$" + product.price.selling }}</p>
           <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
