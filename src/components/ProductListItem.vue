@@ -1,22 +1,21 @@
 <template>
     <li class="list-item">
-        <p class="item-name">{{ product.name }}</p>
-        <p class="item-price" v-if="product.price && product.price.selling">{{ "$" + product.price.selling }}</p>
-        <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
-        <p class="item-price" v-else>Price Not Listed</p>
-        <ItemImage v-bind:image="product.hero" />
+        <div class="item-bg-image" v-bind:style="{ backgroundImage: `url(${product.hero.href})` }">
+          <p class="item-name">{{ product.name }}</p>
+          <p class="item-price" v-if="product.price && product.price.selling">{{ "$" + product.price.selling }}</p>
+          <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
+          <p class="item-price" v-else>Price Not Listed</p>
+        </div>
     </li>
 </template>
 
 <script>
-import ItemImage from './ItemImage.vue';
 
 export default {
     name: 'ProductListItem',
     props: {
         product: Object
     },
-    components: { ItemImage }
 }
 </script>
 
@@ -51,5 +50,9 @@ export default {
   background-color: rgb(115, 115, 115);
   color: #FFF;
   font-weight: bold;
+}
+.item-bg-image {
+  height: 363px;
+  width: 363px;
 }
 </style>
