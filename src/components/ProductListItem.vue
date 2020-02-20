@@ -1,21 +1,35 @@
 <template>
-    <li class="list-item">
+    <li v-on:click="handleClick" class="list-item">
         <div class="item-bg-image" v-bind:style="{ backgroundImage: `url(${product.hero.href})` }">
           <p class="item-name">{{ product.name }}</p>
           <p class="item-price" v-if="product.price && product.price.selling">{{ "$" + product.price.selling }}</p>
           <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
           <p class="item-price" v-else>Price Not Listed</p>
         </div>
+        <ItemOverlay v-if="showOverlay" v-bind:images="product.images" />
     </li>
 </template>
 
 <script>
+import ItemOverlay from './ItemOverlay.vue';
 
 export default {
     name: 'ProductListItem',
+    data: function() {
+      return {
+        showOverlay: false
+      }
+    },
     props: {
         product: Object
     },
+    methods: {
+      handleClick: function() {
+        this.showOverlay = !this.showOverlay;
+        console.log(this.showOverlay);
+      }
+    },
+    components: { ItemOverlay }
 }
 </script>
 
