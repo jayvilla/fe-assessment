@@ -24,6 +24,7 @@ export default {
     justify-content: flex-start;
     height: 50px;
     background: #f4f4f4;
+    padding: 0 100px;
     
 }
 .app-nav {

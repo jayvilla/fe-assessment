@@ -26,6 +26,6 @@ export default {
   justify-content: center;
   align-items: center;
   list-style-type: none;
-  padding: 0;
+  padding: 0 100px;
 }
 </style>
