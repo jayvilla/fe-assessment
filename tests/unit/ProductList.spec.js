@@ -4,7 +4,7 @@ import ProductList from '@/components/ProductList.vue';
 const wrapper = shallowMount(ProductList);
 
 describe('ProductList', () => {
-    it('has been instantiated', () => {
-        expect(typeof wrapper).toBe('object');
+    it('renders', () => {
+        expect(wrapper.exists()).toBe(true);
     })
 })

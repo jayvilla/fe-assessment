@@ -4,7 +4,7 @@ import App from '@/App.vue';
 const wrapper = shallowMount(App);
 
 describe('App', () => {
-    it('has been instantiated', () => {
-        expect(typeof wrapper).toBe('object');
+    it('renders', () => {
+        expect(wrapper.exists()).toBe(true);
     })
 })
