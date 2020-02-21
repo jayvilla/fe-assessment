@@ -1,22 +1,22 @@
 <template>
-  <div id="app"> 
-    <NavBar @changeView='setAppView' />
-    <Home v-if='view === "home"' />
-    <Products v-if='view === "products"' />
+  <div id="app">
+    <NavBar @changeView="setAppView" />
+    <Home v-if="view === 'home'" />
+    <Products v-if="view === 'products'" />
   </div>
 </template>
 
 <script>
-import NavBar from './components/NavBar.vue';
-import Home from './components/Home.vue';
-import Products from './components/Products.vue';
+import NavBar from "./components/NavBar.vue";
+import Home from "./components/Home.vue";
+import Products from "./components/Products.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   data: function() {
     return {
-      view: 'products'
-    }
+      view: "products"
+    };
   },
   methods: {
     setAppView: function(view) {
@@ -28,11 +28,13 @@ export default {
     Home,
     Products
   }
-}
+};
 </script>
 
 <style>
-html, body, #app {
+html,
+body,
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

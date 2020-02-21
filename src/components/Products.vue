@@ -1,12 +1,12 @@
 <template>
   <div class="products">
-      <ProductList v-bind:products='groups' />
+    <ProductList v-bind:products="groups" />
   </div>
 </template>
 
 <script>
-import ProductList from './ProductList.vue';
-import productData from '../../data/products.json';
+import ProductList from "./ProductList.vue";
+import productData from "../../data/products.json";
 /* List of keys in products data
     id
     name
@@ -31,16 +31,16 @@ import productData from '../../data/products.json';
 */
 
 export default {
-  name: 'Products',
+  name: "Products",
   data: function() {
     return {
-      id: '',
-      name: '',
-      categoryType: '',
+      id: "",
+      name: "",
+      categoryType: "",
       groups: [],
       totalPages: null,
       categories: []
-    }
+    };
   },
   created: function() {
     this.fetchProducts();
@@ -53,10 +53,8 @@ export default {
     }
   },
   components: { ProductList }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,21 +1,22 @@
 <template>
-    <ul class="product-list">
-        <ProductListItem
-            v-for="(product, index) in products"
-            v-bind:key="index"
-            v-bind:product="product"/>
-    </ul>
+  <ul class="product-list">
+    <ProductListItem
+      v-for="(product, index) in products"
+      v-bind:key="index"
+      v-bind:product="product"
+    />
+  </ul>
 </template>
 
 <script>
-import ProductListItem from './ProductListItem.vue';
+import ProductListItem from "./ProductListItem.vue";
 export default {
-    name: 'ProductList',
-    props: {
-        products: Array
-    },
-    components: { ProductListItem }
-}
+  name: "ProductList",
+  props: {
+    products: Array
+  },
+  components: { ProductListItem }
+};
 </script>
 
 <style scoped>
