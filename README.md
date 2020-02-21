@@ -24,3 +24,7 @@ yarn lint or npm lint
 ## Production build
 yarn build or npm build
 
+## Functionality to add
+
+1. Responsiven Experience
+2. Accessability & SEO
