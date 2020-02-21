@@ -6,7 +6,7 @@
           <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
           <p class="item-price" v-else>Price Not Listed</p>
         </div>
-        <ItemOverlay v-if="showOverlay" v-bind:images="product.images" />
+        <ItemOverlay v-if="showOverlay" v-bind:images="product.images" @setOverlay='closeOverlay' />
     </li>
 </template>
 
@@ -26,7 +26,9 @@ export default {
     methods: {
       handleClick: function() {
         this.showOverlay = !this.showOverlay;
-        console.log(this.showOverlay);
+      },
+      closeOverlay: function(bool) {
+        this.showOverlay = bool;
       }
     },
     components: { ItemOverlay }

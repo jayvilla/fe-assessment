@@ -1,6 +1,6 @@
 <template>
     <div class='item-overlay'>
-        <Carousel v-bind:images='images' />
+        <Carousel v-bind:images='images' @setOverlayToChild='setOverlay' />
     </div>
 </template>
 
@@ -9,7 +9,16 @@ import Carousel from './Carousel.vue';
 export default {
     name: 'ItemOverlay',
     props: {
-        images: Array
+        images: Array,
+    },
+    methods: {
+        setOverlay: function() {
+            this.$emit('setOverlay', false);
+            console.log('message emitting from child');
+        },
+        setOverlayToChild: function() {
+            this.setOverlay();
+        }
     },
     components: { Carousel }
 }
@@ -27,5 +36,8 @@ export default {
     height: 100%;
     width: 100%;
     z-index: 10;
+}
+span {
+    color: #ffffff;
 }
 </style>

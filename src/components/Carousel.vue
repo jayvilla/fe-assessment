@@ -1,6 +1,7 @@
 <template>
     <div class='carousel'>
         <div class="img-wrapper">
+            <span class='exit' @click='setOverLayToChild'>X</span>
             <img :src='currentImage' alt=''>
             <span @click='prevImage' class='prev'>&#10094;</span>
             <span @click='nextImage' class='next'>&#10095;</span>
@@ -41,6 +42,10 @@ export default {
         },
         activateImage: function(imageIndex) {
             this.activeImage = imageIndex;
+        },
+        setOverLayToChild: function() {
+            this.$emit('setOverlayToChild', false);
+            ('emitting message from child child');
         }
     }
 }
@@ -81,5 +86,15 @@ export default {
 }
 .next {
     right: 0;
+}
+.exit {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 11;
+    color: #505050;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: transparent;
 }
 </style>
