@@ -1,7 +1,7 @@
 <template>
     <li class="list-item">
         <div class="item-bg-image" v-on:click="handleClick" v-bind:style="{ backgroundImage: `url(${product.hero.href})` }">
-          <p class="item-name">{{ product.name }}</p>
+          <p class="item-name">{{ formattedName(product.name) }}</p>
           <p class="item-price" v-if="product.price && product.price.selling">{{ "$" + product.price.selling }}</p>
           <p class="item-price" v-else-if="product.price && product.price.regular">{{ "$" + product.price.regular }}</p>
           <p class="item-price" v-else>Price Not Listed</p>
@@ -29,6 +29,28 @@ export default {
       },
       closeOverlay: function(bool) {
         this.showOverlay = bool;
+      },
+      formattedName: function(name) {
+        let entities = {
+          "&nbsp;": " ",
+          "&lt;": "<",
+          "&gt;": ">",
+          "&amp;": "&",
+          "&quot;": "\"",
+          "&apos;": "'"
+        }
+        if (name.indexOf('&quot;') >-1) {
+          let oldNameRegEx = new RegExp('&quot;', 'gi');
+          name = name.replace(oldNameRegEx, '"')
+        }
+        for (let entity in entities) {
+          let target = entities[entity];
+          if (name.indexOf(target) > -1) {
+            let oldNameRegex = new RegExp(entity, 'gi');
+            name = name.replace(oldNameRegex, entities[entity])
+          }
+        }
+        return name;
       }
     },
     components: { ItemOverlay }
