@@ -1,51 +1,31 @@
 <template>
-    <div class="item-overlay">
-        <ul class="carousel">
-            <li class="carousel-item"
-                v-for="(image, index) in images"
-                v-bind:key="index">
-                <img class="carousel-image" :src="image.href">
-            </li>
-        </ul>
+    <div class='item-overlay'>
+        <Carousel v-bind:images='images' />
     </div>
 </template>
 
 <script>
+import Carousel from './Carousel.vue';
 export default {
     name: 'ItemOverlay',
     props: {
         images: Array
-    }
+    },
+    components: { Carousel }
 }
 </script>
 
 <style scoped>
 .item-overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
     height: 100%;
     width: 100%;
-    background-color: black;
-    opacity: 1;
-    z-index: 99;
+    z-index: 10;
 }
-.carousel {
-    display: flex;
-    flex-direction: row;
-    list-style-type: none;
-    overflow: hidden;
-    height: 363px;
-    width: 363px;
-}
-.carousel-item {
-    height: 363px;
-    width: 363px;
-    margin: 0;
-}
-
-
 </style>
