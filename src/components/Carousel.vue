@@ -77,9 +77,9 @@ export default {
     background-color: rgba(255, 255, 255, 0.75);
 }
 .prev {
-    left: 5px;
+    left: 0;
 }
 .next {
-    right: 5px;
+    right: 0;
 }
 </style>
