@@ -1,7 +1,7 @@
 # fe-assessment
 
 ## Objective
-The purpose of the project is to create a simple product page with a given data in JSON format. This project contains a Home page and Product page. The product pages renders all items in JSON data.
+The purpose of the project is to create a simple product page with data in JSON format. This project contains a Home page and Product page. The product pages renders all items in JSON data.
 
 The example data comes from: https://www.westelm.com/services/catalog/v4/category/shop/new/all-new/index.json
 
@@ -26,5 +26,5 @@ yarn build or npm build
 
 ## Functionality to add
 
-1. Responsiven Experience
+1. Responsive Experience
 2. Accessability & SEO
