@@ -5,6 +5,9 @@
             <img :src='currentImage' alt=''>
             <span @click='prevImage' class='prev'>&#10094;</span>
             <span @click='nextImage' class='next'>&#10095;</span>
+            <div class='indicator'>
+                <div class='bullet' :class='activeImage === index ? "active" : ""' v-for='(image, index) in images' v-bind:key='index'></div>
+            </div>
         </div>
     </div>
 </template>
@@ -66,8 +69,11 @@ export default {
 }
 .img-wrapper {
     position: relative;
+    height: 363px;
+    width: 363px;
 }
 .prev, .next {
+    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -88,6 +94,7 @@ export default {
     right: 0;
 }
 .exit {
+    cursor: pointer;
     position: absolute;
     top: 0;
     right: 0;
@@ -96,5 +103,27 @@ export default {
     font-size: 25px;
     font-weight: bold;
     background-color: transparent;
+}
+.indicator {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 11;
+    height: 35px;
+    width: 363px;
+    background-color: rgba(150, 150, 150, 0.75);
+}
+.bullet {
+    margin: 5px;
+    height: 5px;
+    width: 5px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+}
+.active {
+    background-color: #ffffff;
 }
 </style>

@@ -70,5 +70,6 @@ export default {
 .item-bg-image {
   height: 363px;
   width: 363px;
+  cursor: pointer;
 }
 </style>
