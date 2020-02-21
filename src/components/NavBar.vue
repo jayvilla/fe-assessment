@@ -2,10 +2,10 @@
     <header class="app-header">
         <ul class="app-nav">
             <li class="nav-item">
-                <a>Home</a>
+                <a name='home' @click='changeView'>Home</a>
             </li>
             <li class="nav-item">
-                <a>Products</a>
+                <a name='products' @click='changeView'>Products</a>
             </li>
         </ul>
     </header>
@@ -13,7 +13,12 @@
 
 <script>
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    methods: {
+        changeView: function(e) {
+            this.$emit('changeView', e.target.name)
+        }
+    }
 }
 </script>
 
@@ -37,5 +42,8 @@ export default {
 }
 .nav-item a {
     cursor: pointer;
+}
+a:hover {
+    font-weight: bold;
 }
 </style>

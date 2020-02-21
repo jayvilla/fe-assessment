@@ -1,18 +1,31 @@
 <template>
   <div id="app"> 
-    <NavBar />
-    <Products />
+    <NavBar @changeView='setAppView' />
+    <Home v-if='view === "home"' />
+    <Products v-if='view === "products"' />
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue';
-import Products from './components/Products.vue'
+import Home from './components/Home.vue';
+import Products from './components/Products.vue';
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      view: 'products'
+    }
+  },
+  methods: {
+    setAppView: function(view) {
+      this.view = view;
+    }
+  },
   components: {
     NavBar,
+    Home,
     Products
   }
 }
